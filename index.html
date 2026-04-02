@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Lista de Techs</title>
+    <style>
+        body { font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; padding: 20px; background-color: #ff00d4; }
+
+        .container { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(126, 156, 255, 1); }
+
+        input, button { width: calc(100% - 20px); padding: 10px; margin-top: 10px; border-radius: 4px; border: 1px solid #cccccc; align-self: center;}
+
+        button { background-color: #a7cf4a; color: rgb(255, 38, 0); border: 5px solid blueviolet; font-weight: bold; cursor: pointer; }
+
+        ul { padding-left: 20px;  color: aqua; font-style: italic;}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Minhas Tecnologias</h2>
+        <p>Não ouse julgar minha escolha de cores.</p>
+        <input type="text" id="novoItem" placeholder="Ex: React, Java...">
+        <button onclick="adicionarItem()">Adicionar à Lista</button>
+        <ul id="listaNaTela"></ul>
+    </div>
+
+    <script>
+        let minhasTecnologias = ["JS", "html", "css", "B", "Rust", "Emojilang", "Elixir", "Ruby", "BF", "B2B SaaS AI-Powered Startup creation"];
+
+        function carregarInterface() {
+            let listaHtml = document.getElementById("listaNaTela");
+            listaHtml.innerHTML = ""; // Limpa a tela para não duplicar
+
+            for (let i = 0; i < minhasTecnologias.length; i++) {
+                // DESAFIO 1: Adicione o item à lista
+                listaHtml.innerHTML += "<li>" + minhasTecnologias[i] + "</li>";
+            }
+        }
+
+        function adicionarItem() {
+            let valor = document.getElementById("novoItem").value;
+            
+            minhasTecnologias.push(valor);
+            
+            document.getElementById("novoItem").value = "";
+            carregarInterface();
+        }
+
+        carregarInterface();
+    </script>
+</body>
+</html>
+
